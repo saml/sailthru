@@ -39,8 +39,11 @@ func (c *jsonLeafCollector) collect(v interface{}) {
 	}
 }
 
+// Params is paramters that client takes.
+type Params map[string]interface{}
+
 // ExtractParams extracts sailthru parameters given json object.
-func ExtractParams(m map[string]interface{}) []string {
+func ExtractParams(m Params) []string {
 	c := &jsonLeafCollector{}
 	c.collectMap(m)
 	return c.values
